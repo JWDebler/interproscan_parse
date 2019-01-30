@@ -12,6 +12,7 @@ parser.add_argument('-i', '--interproscan', help='path to an interproscan.out fi
 parser.add_argument('-o', '--output', help='path and name of output file (default = searchterm.fasta)')
 parser.add_argument('-s', '--searchterm', help='a string of what you are looking for (default = amylase)')
 parser.add_argument('-d', '--database', help='limit hits to certain database (pfam, tmhmm, panther, prosite, mobidb, signalp, prints, prodom)')
+parser.add_argument('-n', '--nooutputfile', action='store_true', help='prevents the creation of an output file and only prints results to the terminal')
 args = parser.parse_args()
 
 if args.interproscan:
@@ -95,4 +96,5 @@ for key, value in output.items():
     else:
         print(key, interproscan[key][3],':', interproscan[key][5])
 
-    print('>'+key, '\n'+value, file=open(output_file,'a'))
+    if not args.nooutputfile:
+        print('>'+key, '\n'+value, file=open(output_file,'a'))

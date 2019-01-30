@@ -42,5 +42,8 @@ a string of what you are looking for (default = amylase)
 
 -d DATABASE, --database DATABASE
 limit hits to certain database (pfam, tmhmm, panther, prosite, mobidb, signalp, prints, prodom)
+
+-n, --nooutputfile
+prevents the creation of an output file and only prints results to the terminal
 ```
 
