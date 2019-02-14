@@ -92,9 +92,10 @@ print('')
 
 for key, value in output.items():
     if interproscan[key][3] == 'PANTHER':
-        print(key, interproscan[key][3],':', interproscan[key][12])
+        print(key, ':', interproscan[key][3],':', interproscan[key][12])
     else:
-        print(key, interproscan[key][3],':', interproscan[key][5])
+        print(key, ':', interproscan[key][3],':', interproscan[key][5])
 
+    #only create output file if '-n' flag is not set
     if not args.nooutputfile:
         print('>'+key, '\n'+value, file=open(output_file,'a'))
